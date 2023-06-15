@@ -6,23 +6,32 @@
 // objects, and how inheritance might come into play if there are different types of
 // stories or storytellers.
 
+       //Pseudo code
+       //Input
+      //  length,morallessons,ageGroup
+      // Output
+      // the types of stories,the story teller and the language,the translator
+      // Process
+      // Creating a base class of the stories and having subclasses of the types of stories,the story teller
+      //  and the translator
 
 // Base Story class
 class Story {
-    constructor(title, content, ageGroup) {
+    constructor(title, content, ageGroup,length) {
       this.title = title;
       this.content = content;
       this.ageGroup = ageGroup;
+      this.length = length
     }
   
     tellStory() {
       console.log(this.content);
     }
   }
-  let story = new Story('Tales of the Elephant','animal word',4);
+  let story = new Story('Tales of the Elephant','animal word',4,'4hrs');
   console.log(story);
   
-  // Types of Stories (inherited from Story class)
+ 
   class Fable extends Story {
     constructor(title, content, ageGroup, moralLesson) {
       super(title, content, ageGroup);
@@ -41,7 +50,7 @@ class Story {
   let myth = new Myth('Mystery of Giraffes','Giraffes have hands',15,'Grandparents')
   console.log(myth);
   
-  // Base StoryTeller class
+  
   class StoryTeller {
     constructor(name, language) {
       this.name = name;
@@ -66,8 +75,7 @@ story.tellStory()
       this.languageTo = languageTo;
     }
     translate(story) {
-        // Implement translation logic here
-        // Return translated story in the target language
+        
       }
 } 
 
@@ -81,6 +89,106 @@ story.tellStory()
 // `EthiopianRecipe`, `NigerianRecipe`), each with their own unique properties and
 // methods.
 
+   //Pseudo code
+        // Input
+        // ingredients,preparation time,cooking method,nutritional information
+        // Output
+        // different types of recipes with different properties
+        // Process
+        // creating a base class for the recipe and having the subclasses that will help us create subclasses
+        // with different methods and properties
+
+
+
+class Recipe {
+  constructor(name, country, ingredients, preparationTime, cookingMethod, nutritionalInfo) {
+    this.name = name;
+    this.country = country;
+    this.ingredients = ingredients;
+    this.preparationTime = preparationTime;
+    this.cookingMethod = cookingMethod;
+    this.nutritionalInfo = nutritionalInfo;
+  }
+
+  displayRecipe() {
+    console.log(`Recipe: ${this.name}`);
+    console.log(`Country: ${this.country}`);
+    console.log(`Ingredients: ${this.ingredients.join(", ")}`);
+    console.log(`Preparation Time: ${this.preparationTime}`);
+    console.log(`Cooking Method: ${this.cookingMethod}`);
+    console.log(`Nutritional Information: ${this.nutritionalInfo}`);
+  }
+}
+
+class MoroccanRecipe extends Recipe {
+  constructor(name, ingredients, preparationTime, cookingMethod, nutritionalInfo, spices) {
+    super(name, "Morocco", ingredients, preparationTime, cookingMethod, nutritionalInfo);
+    this.spices = spices;
+  }
+
+  displayRecipe() {
+    super.displayRecipe();
+    console.log(`Spices: ${this.spices.join(", ")}`);
+  }
+}
+
+class EthiopianRecipe extends Recipe {
+  constructor(name, ingredients, preparationTime, cookingMethod, nutritionalInfo, injera) {
+    super(name, "Ethiopia", ingredients, preparationTime, cookingMethod, nutritionalInfo);
+    this.injera = injera;
+  }
+
+  displayRecipe() {
+    super.displayRecipe();
+    console.log(`Injera: ${this.injera}`);
+  }
+}
+
+class NigerianRecipe extends Recipe {
+  constructor(name, ingredients, preparationTime, cookingMethod, nutritionalInfo, jollofRice) {
+    super(name, "Nigeria", ingredients, preparationTime, cookingMethod, nutritionalInfo);
+    this.jollofRice = jollofRice;
+  }
+
+  displayRecipe() {
+    super.displayRecipe();
+    console.log(`Jollof Rice: ${this.jollofRice}`);
+  }
+}
+
+
+// Create Moroccan recipe
+const moroccanRecipe = new MoroccanRecipe(
+  "Tagine",
+  ["Chicken", "Onions", "Tomatoes", "Spices"],
+  "1 hour",
+  "Stew",
+  "Calories: 400",
+  ["Cumin", "Coriander", "Cinnamon"]
+);
+moroccanRecipe.displayRecipe();
+
+// Create Ethiopian recipe
+const ethiopianRecipe = new EthiopianRecipe(
+  "Doro Wat",
+  ["Chicken", "Onions", "Berbere", "Spices"],
+  "2 hours",
+  "Stew",
+  "Calories: 500",
+  "Injera bread"
+);
+ethiopianRecipe.displayRecipe();
+
+// Create Nigerian recipe
+const nigerianRecipe = new NigerianRecipe(
+  "Jollof Rice",
+  ["Rice", "Tomatoes", "Peppers", "Onions", "Chicken", "Spices"],
+  "45 minutes",
+  "Cooking",
+  "Calories: 600",
+  "Yes"
+);
+nigerianRecipe.displayRecipe();
 
 
 // question7
@@ -119,8 +227,7 @@ class FlightBooking {
     }
     
   }
-  let book = new FlightBooking(bookings)
-  book.reserveSeat(123,'African')
+  
   
   
   
@@ -137,7 +244,7 @@ class FlightBooking {
 
   let flight1 = new Flight("FL1", "Rwanda", "2023-06-20", 100);
   let flight2 = new Flight("FL2", "Ethiopia", "2023-06-22", 80);
-  flightBooking.addFlight(flight1);
+  // flightBooking.addFlight(flight1);
   flightBooking.addFlight(flight2);
   console.log(flightBooking);
   
