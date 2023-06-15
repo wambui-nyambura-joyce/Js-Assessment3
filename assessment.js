@@ -196,6 +196,12 @@ nigerianRecipe.displayRecipe();
 // methods to search for available flights based on destination and date, reserve
 // seats for customers, manage passenger information, and generate booking
 // confirmations.
+
+// Pseudo code 
+// input 
+// destination,time,reserved seats,passanger instanceof,booking 
+// output
+// flights available,passenger that has booked,bookings 
 class FlightBooking {
     constructor() {
       this.flights = [];
@@ -227,9 +233,6 @@ class FlightBooking {
     }
     
   }
-  
-  
-  
   
   class Flight {
     constructor(id, destination, date, availableSeats) {
