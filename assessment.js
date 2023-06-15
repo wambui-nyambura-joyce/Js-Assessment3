@@ -260,6 +260,15 @@ class FlightBooking {
 // Create a class called Product with attributes for name, price, and quantity.
 // Implement a method to calculate the total value of the product (price * quantity).
 // Create multiple objects of the Product class and calculate their total values.
+
+// pseudo code 
+// input 
+// name,price,quantity 
+// output 
+// total value of the product 
+// Process 
+// creating a class product with other multiple objects to get the total values 
+
 class Product {
     constructor(name, price, quantity) {
       this.name = name;
